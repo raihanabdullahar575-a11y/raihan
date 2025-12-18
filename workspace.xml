@@ -216,4 +216,65 @@
       </map>
     </option>
   </component>
+
 </project>
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- runtime‑granted permissions -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" /> <!-- exact‑alarm permission for API 31+ -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.MyReminder"
+        tools:targetApi="34">
+
+        <!-- StartApp metadata -->
+        <meta-data
+            android:name="com.startapp.sdk.APPLICATION_ID"
+            android:value="205551349" />
+        <activity
+            android:name=".Ui.LoginSignupForgetPassword.ForgetPasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Ui.DashboradActivity"
+            android:exported="false" /> <!-- 🚀 Launcher = Dashboard -->
+        <activity
+            android:name=".Ui.LoginSignupForgetPassword.Login"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Ui.LoginSignupForgetPassword.Signup"
+            android:exported="false" /> <!-- add / edit task -->
+        <activity
+            android:name=".Ui.Notification.TaskActivity"
+            android:exported="false" /> <!-- alarm → heads‑up notification -->
+        <receiver
+            android:name=".Ui.Notification.AlarmReceiver"
+            android:exported="false" /> <!-- notification “Dismiss” button -->
+        <receiver
+            android:name=".Ui.Notification.DismissReceiver"
+            android:exported="false" />
+    </application>
+
+</manifest>
