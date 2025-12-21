@@ -1,0 +1,21 @@
+package com.my_reminder.Model;
+
+public class ReminderModel {
+
+    private int id;
+    private String title,date,time;
+    private boolean dismissed;
+
+    public ReminderModel(int id,String title,String date,String time,boolean dismissed){
+        this.id=id; this.title=title; this.date=date; this.time=time;
+        this.dismissed=dismissed;
+    }
+
+    public int getId(){ return id; }
+    public String getTitle(){ return title; }
+    public String getDate(){ return date; }
+    public String getTime(){ return time; }
+    public boolean isDismissed(){ return dismissed; }
+
+    public void setDismissed(boolean d){ this.dismissed=d; }
+}
